@@ -1,0 +1,54 @@
+name: qr_scan_and_generate
+description: A new Flutter application.
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_localizations:
+    sdk: flutter
+  path_provider: ^2.0.1
+  qr_flutter: ^4.0.0
+  flutter_vector_icons: ^1.0.0
+  app_review: ^2.1.1+1
+  flutter_email_sender: ^5.0.0
+  provider: ^5.0.0
+  shared_preferences: ^2.0.5
+  qr_code_scanner: ^0.4.0
+  permission_handler: ^7.1.0
+  intl: ^0.17.0
+  sqflite: ^2.0.0+3
+  share: ^2.0.1
+  admob_flutter: ^1.0.1
+  flutter_material_color_picker: ^1.0.5
+  image_cropper: ^1.4.1
+  url_launcher: ^6.0.3
+  image_picker: ^0.7.4
+  rxdart: ^0.26.0
+  image_gallery_saver: ^1.6.9
+
+  keyboard_visibility: ^0.5.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic_mono: ^1.11.0+2
+  qr_code_tools: ^0.0.7
+  flutter_launcher_icons: ^0.9.0
+
+flutter_icons:
+  image_path: images/QRImage.png
+  ios: true
+  android: true
+
+
+flutter:
+  uses-material-design: true
+  generate: true
