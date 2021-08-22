@@ -1,4 +1,5 @@
 import 'package:admob_flutter/admob_flutter.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_scan_and_generate/admob.dart';
 import 'package:qr_scan_and_generate/qr_scanner/qr_scan_page.dart';
@@ -14,20 +15,36 @@ class BarcodeView extends StatelessWidget {
     ModalRoute.of(context).settings.arguments as BarcodeViewArguments;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('読み取り結果'),
-        actions: [
-          //Icon(Icons.ios_share),
-          IconButton(
-            icon: Icon(
-              Icons.ios_share,
-              color: Colors.blue,
-            ),
-            onPressed: (){
-              Share.share('${arguments.barcodedata}');
-            },
+      appBar: CupertinoNavigationBar(
+        middle: const Text('読み取り結果'),
+        leading: CupertinoButton(
+          alignment: FractionalOffset.centerLeft,
+          padding: EdgeInsets.zero,
+          child: Icon(
+            CupertinoIcons.left_chevron,
+            size: 25,
+            color: Colors.black,
           ),
-        ],
+          onPressed: () {
+            Navigator.pop(
+                context,
+                MaterialPageRoute(builder: (context) => QRCodeScannerView(),
+                )
+            );
+          },
+        ),
+        trailing: CupertinoButton(
+          alignment: FractionalOffset.centerRight,
+          padding: EdgeInsets.zero,
+          child: Icon(
+            Icons.ios_share,
+            color: Colors.blue,
+          ),
+          onPressed: (){
+            Share.share('${arguments.barcodedata}',
+            );
+            },
+        ),
       ),
       body: SingleChildScrollView(
         child: ListBody(

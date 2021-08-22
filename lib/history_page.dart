@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:intl/intl.dart';
 import 'package:qr_scan_and_generate/db/input_text_repository.dart';
+import 'package:qr_scan_and_generate/menu_page.dart';
 import 'package:qr_scan_and_generate/qr_scanner/url_launch.dart';
 import 'package:share/share.dart';
 
@@ -46,8 +47,24 @@ class _HistoryPageState extends State<HistoryPage> {
     );
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('履歴'),
+      appBar: CupertinoNavigationBar(
+        middle: Text('履歴'),
+        leading: CupertinoButton(
+          alignment: FractionalOffset.centerLeft,
+          padding: EdgeInsets.zero,
+          child: Icon(
+            CupertinoIcons.left_chevron,
+            size: 25,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(
+                context,
+                MaterialPageRoute(builder: (context) => MenuPage(),
+                )
+            );
+          },
+        ),
       ),
       body: futureBuilder,
 

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:app_review/app_review.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_scan_and_generate/db/input_text_repository.dart';
@@ -200,21 +201,21 @@ class _QRCodeScannerViewState extends State<QRCodeScannerView> {
   Widget build(BuildContext context) {
     // _checkPermissionState();
     return Scaffold(
-      appBar: AppBar(
-        title: Text('カメラを起動中'),
+      appBar: CupertinoNavigationBar(
+        middle: Text('カメラを起動中'),
         backgroundColor: Colors.white,
-        actions: <Widget>[
-          IconButton(
-//            style: TextButton.styleFrom(primary: Colors.black,),
-            icon: Icon(
-              Icons.menu,
-              color: Colors.black,
-            ),
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context){
-              return MenuPage();
-            })),
+        trailing: CupertinoButton(
+          alignment: FractionalOffset.centerRight,
+          padding: EdgeInsets.zero,
+          child: Icon(
+            Icons.menu,
+            size: 25,
+            color: Colors.black,
           ),
-        ],
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context){
+            return MenuPage();
+          })),
+        ),
       ),
       extendBodyBehindAppBar: true,
       body: Column(
@@ -230,6 +231,9 @@ class _QRCodeScannerViewState extends State<QRCodeScannerView> {
         foregroundColor: Colors.black,
         label: Text(
           'アルバムからスキャン',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
         onPressed: _getPhotoByGallery,
       ),

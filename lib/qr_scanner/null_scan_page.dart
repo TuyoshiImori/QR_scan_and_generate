@@ -1,8 +1,10 @@
 import 'package:admob_flutter/admob_flutter.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:qr_scan_and_generate/admob.dart';
+import 'package:qr_scan_and_generate/qr_scanner/qr_scan_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NullScanPage extends StatefulWidget {
@@ -67,8 +69,24 @@ class _NullScanPageState extends State<NullScanPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('検索結果'),
+      appBar: CupertinoNavigationBar(
+        middle: Text('検索結果'),
+        leading: CupertinoButton(
+          alignment: FractionalOffset.centerLeft,
+          padding: EdgeInsets.zero,
+          child: Icon(
+            CupertinoIcons.left_chevron,
+            size: 25,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => QRCodeScannerView(),
+              ),
+            );
+          },
+        ),
       ),
       body: SingleChildScrollView(
         child: ListBody(

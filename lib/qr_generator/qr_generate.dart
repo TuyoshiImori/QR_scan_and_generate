@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:image_cropper/image_cropper.dart';
+import 'package:qr_scan_and_generate/menu_page.dart';
 
 import 'dart:io';
 import 'dart:typed_data';
@@ -198,8 +199,24 @@ class _QRGenerateState extends State<QRGenerate> {
   Widget build(BuildContext context) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
-          appBar: AppBar(
-            title: Text('QRを作成する'),
+          appBar: CupertinoNavigationBar(
+            middle: Text('QRを作成する'),
+            leading: CupertinoButton(
+              alignment: FractionalOffset.centerLeft,
+              padding: EdgeInsets.zero,
+              child: Icon(
+                CupertinoIcons.left_chevron,
+                size: 25,
+                color: Colors.black,
+              ),
+              onPressed: () {
+                Navigator.pop(
+                  context,
+                  MaterialPageRoute(builder: (context) => MenuPage(),
+                  ),
+                );
+              },
+            ),
           ),
           body: GestureDetector(
             onTap: () {

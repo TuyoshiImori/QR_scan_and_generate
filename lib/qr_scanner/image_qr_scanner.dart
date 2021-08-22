@@ -1,6 +1,7 @@
 
 
 import 'package:admob_flutter/admob_flutter.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:qr_scan_and_generate/admob.dart';
@@ -20,20 +21,37 @@ class _ImageQRScanner extends State<ImageQRScanner> {
   Widget build(BuildContext context) {
     final ImageQRScanners args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('画像で読み取り'),
-        actions: [
-          //Icon(Icons.ios_share),
-          IconButton(
-            icon: Icon(
-              Icons.ios_share,
-              color: Colors.blue,
-            ),
-            onPressed: (){
-              Share.share('${args.qrdata2}');
-            },
+      appBar: CupertinoNavigationBar(
+        middle: const Text('画像で読み取り'),
+        leading: CupertinoButton(
+          alignment: FractionalOffset.centerLeft,
+          padding: EdgeInsets.zero,
+          child: Icon(
+            CupertinoIcons.left_chevron,
+            size: 25,
+            color: Colors.black,
           ),
-        ],
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(builder: (context) => QRCodeScannerView(),
+              ),
+            );
+          },
+        ),
+        trailing: CupertinoButton(
+          alignment: FractionalOffset.centerRight,
+          padding: EdgeInsets.zero,
+          child: Icon(
+            Icons.ios_share,
+            color: Colors.blue,
+          ),
+          onPressed: () {
+            Share.share(
+              '${args.qrdata2}',
+            );
+            },
+        ),
       ),
       body: SingleChildScrollView(
         child: ListBody(
