@@ -30,24 +30,6 @@ class _MenuPageState extends State<MenuPage> {
     }
   }
 
-
-  //開発者のinstagram
-  _launchInInstagram() async {
-    String instagram_url = 'https://www.instagram.com/imorin_0729';
-    if (await canLaunch(instagram_url)) {
-      await launch(
-        instagram_url,
-        forceSafariVC: false,//iOSでアプリ内かブラウザのどちらかでURLを開くか決める。
-        forceWebView: false,//Androidでアプリ内かブラウザのどちらかでURLを開くか決める。
-        universalLinksOnly: true,
-      );
-    }
-    else {
-      throw 'このinstagramアカウントは存在しません';
-    }
-  }
-
-
   @override
   Widget build(BuildContext context) {
     //final theme = Provider.of<AppTheme>(context);
