@@ -122,17 +122,6 @@ class _MenuPageState extends State<MenuPage> {
             Divider(
               thickness: 1.0,
             ),
-            ListTile(
-              leading: Icon(MaterialCommunityIcons.instagram),
-              title: Text('お問い合わせ（Instagram）'),
-              onTap: () {
-                //Utils.openLinkBrowser(url: 'https://twitter.com/imorin_basson');
-                _launchInInstagram();
-              },
-            ),
-            Divider(
-              thickness: 1.0,
-            ),
             //ListTile(
               //leading: Icon(MaterialCommunityIcons.instagram),
               //title: Text('開発者（Instagram）'),
