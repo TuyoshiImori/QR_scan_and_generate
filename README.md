@@ -1,7 +1,7 @@
 # アプリケーションの概要
 *アプリの名称*
 「QRコード読み取り・作成アプリ」<br>
-![BuleQR](https://user-images.githubusercontent.com/89064258/132617585-f0869c05-e091-4de6-b58a-f02b30513c96.png)
+<img src="https://user-images.githubusercontent.com/89064258/132617585-f0869c05-e091-4de6-b58a-f02b30513c96.png" width="320px">
 
 
 *主な機能一覧*<br>
