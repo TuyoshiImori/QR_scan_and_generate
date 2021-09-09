@@ -1,8 +1,6 @@
 # アプリケーションの概要
 *アプリの名称*<br>
 「QRコード読み取り・作成アプリ」<br>
-<img src="https://user-images.githubusercontent.com/89064258/132618031-83a2997e-6c34-424f-bdb2-c85a6b26afb3.jpeg" width="320px">
-
 
 *主な機能一覧*<br>
 ・カメラでQRコードを読み取る機能<br>
